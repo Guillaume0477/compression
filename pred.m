@@ -1,7 +1,6 @@
 function I_PRED=pred(I, a1, a2, a3)
-  
-  I_PRED = zeros(s);
   s = size(I);
+  I_PRED = zeros(s);
   I_PRED(1,:) = I(1,:);
   I_PRED(:,1) = I(:,1);
   
