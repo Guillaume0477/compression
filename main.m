@@ -114,7 +114,7 @@ I_DCT = DCTransf(Im);
 I_Q = Quantif(I_DCT);
 [I_C,dico] = codage(I_Q);
 I_Decode = decodage(I_C,dico,s(1),s(2));
-
+I_Rec = INVDCTransf(I_Decode);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Visualisation compression avec pertes %
@@ -133,14 +133,14 @@ subplot(231)
 imshow(Im, [])
 title 'Image origine'
 colorbar
-%subplot(232)
-%imshow(I_R, [])
-%title 'Image reconstruite'
-%colorbar
-%subplot(233)
-%imshow(Im - I_R, [])
-%title(['Difference entre les deux images : min = ', num2str(min(min(Im - I_R))), ': max = ', num2str(max(max(Im - I_R)))])
-%colorbar
+subplot(232)
+imshow(I_Rec, [])
+title 'Image reconstruite'
+colorbar
+subplot(233)
+imshow(Im - I_Rec, [])
+title(['Difference entre les deux images : min = ', num2str(min(min(Im - I_Rec))), ': max = ', num2str(max(max(Im - I_Rec)))])
+colorbar
 subplot(234)
 imshow(I_Q, [])
 title 'Image decorrelee'
