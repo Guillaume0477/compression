@@ -3,7 +3,7 @@ function [I_C,dictionnaire]=codage(I_PRED)
   s = size(I_PRED);
   
   %Get the histogram
-  [hDec, vals_dec] = hist(reshape(I_PRED, [s(2)*s(1),1]), -31:31);
+  [hDec, vals_dec] = hist(reshape(I_PRED, [s(2)*s(1),1]), min(min(I_PRED)):max(max(I_PRED)));
   
   %Extract symbols
   ind = find(hDec);
