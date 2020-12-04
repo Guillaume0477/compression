@@ -1,4 +1,3 @@
-
 clear variables;
 close all;
 
@@ -8,22 +7,26 @@ ImToUse = 'lena.gif';
 N = 31; 
 
 %Read the image
-Im = im2double(imread(ImToUse));
+Im = double(imread(ImToUse));
 I_dec = pred(Im, 1, -1, 1);
 
 %Size of the the image
 s = size(Im);
 
 %Get histograms
-[hInit, vals] = hist(reshape(Im, [s(2)*s(1),1]), N);
-[hDec, vals_dec] = hist(reshape(I_dec, [s(2)*s(1),1]), N);
+[hInit, vals] = hist(reshape(Im, [s(2)*s(1),1]), 0:31);
+[hDec, vals_dec] = hist(reshape(I_dec, [s(2)*s(1),1]), -31:31);
 
 %Get correlation coefficient
-corh = corrcoef(Im);
-corv = corrcoef(Im');
+%corh = corrcoef(Im);
+%corv = corrcoef(Im');
 
-corh_dec = corrcoef(I_dec);
-corv_dec = corrcoef(I_dec');
+%corh_dec = corrcoef(I_dec);
+%corv_dec = corrcoef(I_dec');
+
+%Get the huffman code and dictionnary
+[I_C, dictionnaire] = codage(I_dec);
+
 
 %Visualisation
 figure(1)
@@ -33,26 +36,26 @@ title 'Image origine'
 colorbar
 subplot(222)
 imshow(I_dec, [])
-title 'Image d�correl�e'
+title 'Image decorrelee'
 colorbar
 subplot(223)
 bar(vals, hInit)
 title 'histogramme origine'
 subplot(224)
 bar(vals_dec, hDec)
-title 'histogramme d�correl�'
+title 'histogramme decorrele'
 
 
 %Affichage des coefficients de corrélation
-figure(2)
-subplot(221)
-plot(corh(1,1:10))
-subplot(222)
-plot(corv(1,1:10))
-subplot(223)
-plot(corh_dec(1,1:10))
-subplot(224)
-plot(corv_dec(1,1:10))
+%figure(2)
+%subplot(221)
+%plot(corh(1,1:10))
+%subplot(222)
+%plot(corv(1,1:10))
+%subplot(223)
+%plot(corh_dec(1,1:10))
+%subplot(224)
+%plot(corv_dec(1,1:10))
 
 
 
