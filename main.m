@@ -2,7 +2,7 @@ clear variables;
 close all;
 
 % Filename of the image to load
-ImToUse = 'lena.gif';
+ImToUse = 'mandrill.gif';
 %Number of bins of the hist
 N = 31; 
 
@@ -120,4 +120,4 @@ figure(4)
 subplot(121)
 imshow(Im, [])
 subplot(122)
-imshow(I_DCT, [])
+imshow(log(abs(I_DCT)), [-5,5])
