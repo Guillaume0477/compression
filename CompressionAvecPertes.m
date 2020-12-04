@@ -10,8 +10,16 @@ I_dec = pred(Im, 1, -1, 1);
 %Size of the the image
 s = size(Im);
 
+%Get histograms
 [hInit, vals] = hist(reshape(Im, [s(2)*s(1),1]), N);
 [hDec, vals_dec] = hist(reshape(I_dec, [s(2)*s(1),1]), N);
+
+%Get correlation coefficient
+corh = corrcoef(Im);
+corv = corrcoef(Im');
+
+corh_dec = corrcoef(I_dec);
+corv_dec = corrcoef(I_dec');
 
 %Visualisation
 figure(1)
@@ -23,3 +31,14 @@ subplot(223)
 bar(vals, hInit)
 subplot(224)
 bar(vals_dec, hDec)
+
+%Affichage des coefficients de corrélation
+figure(2)
+subplot(221)
+plot(corh(1,1:10))
+subplot(222)
+plot(corv(1,1:10))
+subplot(223)
+plot(corh_dec(1,1:10))
+subplot(224)
+plot(corv_dec(1,1:10))
