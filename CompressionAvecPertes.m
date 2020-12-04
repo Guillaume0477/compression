@@ -52,12 +52,17 @@ title 'histogramme decorrele'
 figure(2)
 subplot(221)
 plot(corh(1,1:10))
+title 'coefficient corr�lation horizontal pour image origine'
 subplot(222)
 plot(corv(1,1:10))
+title 'coefficient corr�lation vertical pour image origine'
 subplot(223)
 plot(corh_dec(1,1:10))
+title 'coefficient corr�lation horizontal pour image d�corr�l�e'
 subplot(224)
 plot(corv_dec(1,1:10))
+title 'coefficient corr�lation vertical pour image d�corr�l�e'
+
 
 %Visualisation of the decoding
 figure(3)
