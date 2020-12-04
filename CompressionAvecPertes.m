@@ -1,12 +1,25 @@
 % Filename of the image to load
 ImToUse = 'lena.gif';
+%Number of bins of the hist
+N = 31; 
 
 %Read the image
 Im = im2double(imread(ImToUse));
-
-figure(1)
-imshow(Im, [])
-
 I_dec = pred(Im, 1, -1, 1);
-figure(2)
+
+%Size of the the image
+s = size(Im);
+
+[hInit, vals] = hist(reshape(Im, [s(2)*s(1),1]), N);
+[hDec, vals_dec] = hist(reshape(I_dec, [s(2)*s(1),1]), N);
+
+%Visualisation
+figure(1)
+subplot(221)
+imshow(Im, [])
+subplot(222)
 imshow(I_dec, [])
+subplot(223)
+bar(vals, hInit)
+subplot(224)
+bar(vals_dec, hDec)
