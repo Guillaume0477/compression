@@ -2,7 +2,7 @@ clear variables;
 close all;
 
 % Filename of the image to load
-ImToUse = 'mandrill.gif';
+ImToUse = 'Lena.gif';
 %Number of bins of the hist
 N = 31; 
 
