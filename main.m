@@ -111,13 +111,16 @@ colorbar
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 I_DCT = DCTransf(Im);
+I_Q = Quantif(I_DCT);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Visualisation compression avec pertes %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 figure(4)
-subplot(121)
+subplot(131)
 imshow(Im, [])
-subplot(122)
+subplot(132)
 imshow(log(abs(I_DCT)), [-5,5])
+subplot(133)
+imshow(log(abs(I_Q)), [-5,5])

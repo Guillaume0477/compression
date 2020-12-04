@@ -7,8 +7,14 @@ function I_Q=Quantif(I_DCT)
             13,15,17,19,21,23,25,27;
             15,17,19,21,23,25,27,29;
             17,19,21,23,25,27,29, 31];
+    s = size(I_DCT);
+    I_Q = zeros(s);
     
-    
+    for i = 1:s(1)/8
+      for j = 1:s(2)/8
+        I_Q(8*(i-1)+1:8*i, 8*(j-1)+1:8*j) = round((I_DCT(8*(i-1)+1:8*i, 8*(j-1)+1:8*j))./pasQ);     
+      end
+    end
     
     
 end
