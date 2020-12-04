@@ -77,25 +77,25 @@ subplot(231)
 imshow(Im, [])
 title 'Image origine'
 colorbar
-subplot(231)
+subplot(232)
 imshow(I_R, [])
 title 'Image reconstruite'
 colorbar
-subplot(225)
+subplot(233)
 imshow(Im - I_R, [])
-title(['Difference entre les deux images \n min = ', min(min(Im - I_R)), '\n max = ', max(max(Im - I_R))])
+title(['Difference entre les deux images : min = ', num2str(min(min(Im - I_R))), ': max = ', num2str(max(max(Im - I_R)))])
 colorbar
 subplot(234)
 imshow(I_dec, [])
 title 'Image decorrelee'
 colorbar
-subplot(225)
+subplot(235)
 imshow(I_decode, [])
 title 'Image decodee'
 colorbar
-subplot(225)
+subplot(236)
 imshow(I_decode - I_dec, [])
-title(['Difference entre les deux images \n min = ', min(min(I_decode - I_dec)), '\n max = ', max(max(I_decode - I_dec))])
+title(['Difference entre les deux images codees : min = ', num2str(min(min(I_decode - I_dec))), ': max = ', num2str(max(max(I_decode - I_dec)))])
 colorbar
 
 
