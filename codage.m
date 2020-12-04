@@ -11,8 +11,9 @@ function [I_C,dictionnaire]=codage(I_PRED)
   prob = hDec(ind) / sum(sum(hDec));
   
   %Creation of the dictionnary
-  dictionnaire = huffmandict(symb, prob);
+  [dictionnaire , l_moy] = huffmandict(symb, prob);
   
+  l_moy
   %Creation of the code of the image
   I_C = huffmanenco(reshape(I_PRED,[1,s(2)*s(1)]) , dictionnaire);
   

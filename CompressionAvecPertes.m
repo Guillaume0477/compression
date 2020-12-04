@@ -27,8 +27,7 @@ corv_dec = corrcoef(I_dec');
 %Get the huffman code and dictionnary
 [I_C, dictionnaire] = codage(I_dec);
 
-I_decode = decodage(I_C, decodage, s(1), s(2));
-
+I_decode=decodage(I_C,dictionnaire,s(1),s(2));
 
 %Visualisation
 figure(1)
@@ -77,6 +76,7 @@ colorbar
 subplot(223)
 imshow(I_decode, [])
 title 'Image decodee'
+colorbar
 
 
 
