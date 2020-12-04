@@ -18,14 +18,16 @@ s = size(Im);
 [hDec, vals_dec] = hist(reshape(I_dec, [s(2)*s(1),1]), -31:31);
 
 %Get correlation coefficient
-%corh = corrcoef(Im);
-%corv = corrcoef(Im');
+corh = corrcoef(Im);
+corv = corrcoef(Im');
 
-%corh_dec = corrcoef(I_dec);
-%corv_dec = corrcoef(I_dec');
+corh_dec = corrcoef(I_dec);
+corv_dec = corrcoef(I_dec');
 
 %Get the huffman code and dictionnary
 [I_C, dictionnaire] = codage(I_dec);
+
+I_decode = decodage(I_C, decodage, s(1), s(2));
 
 
 %Visualisation
@@ -47,16 +49,29 @@ title 'histogramme decorrele'
 
 
 %Affichage des coefficients de corrélation
-%figure(2)
-%subplot(221)
-%plot(corh(1,1:10))
-%subplot(222)
-%plot(corv(1,1:10))
-%subplot(223)
-%plot(corh_dec(1,1:10))
-%subplot(224)
-%plot(corv_dec(1,1:10))
+figure(2)
+subplot(221)
+plot(corh(1,1:10))
+subplot(222)
+plot(corv(1,1:10))
+subplot(223)
+plot(corh_dec(1,1:10))
+subplot(224)
+plot(corv_dec(1,1:10))
 
+%Visualisation of the decoding
+figure(3)
+subplot(221)
+imshow(Im, [])
+title 'Image origine'
+colorbar
+subplot(222)
+imshow(I_dec, [])
+title 'Image decorrelee'
+colorbar
+subplot(223)
+imshow(I_decode, [])
+title 'Image decodee'
 
 
 

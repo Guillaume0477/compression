@@ -7,11 +7,13 @@ function [I_C,dictionnaire]=codage(I_PRED)
   
   %Extract symbols
   ind = find(hDec);
-  symb = vals_dec(ind)
+  symb = vals_dec(ind);
   prob = hDec(ind) / sum(sum(hDec));
   
-  dictionnaire = huffmandict(symb, prob)
+  %Creation of the dictionnary
+  dictionnaire = huffmandict(symb, prob);
   
+  %Creation of the code of the image
   I_C = huffmanenco(reshape(I_PRED,[1,s(2)*s(1)]) , dictionnaire);
   
 end  
