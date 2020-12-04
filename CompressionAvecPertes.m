@@ -47,15 +47,20 @@ title 'histogramme decorrele'
 
 
 %Affichage des coefficients de corrÃ©lation
-%figure(2)
-%subplot(221)
-%plot(corh(1,1:10))
-%subplot(222)
-%plot(corv(1,1:10))
-%subplot(223)
-%plot(corh_dec(1,1:10))
-%subplot(224)
-%plot(corv_dec(1,1:10))
+figure(2)
+subplot(221)
+plot(corh(1,1:10))
+title 'coefficient corrélation horizontal pour image origine'
+subplot(222)
+plot(corv(1,1:10))
+title 'coefficient corrélation vertical pour image origine'
+subplot(223)
+plot(corh_dec(1,1:10))
+title 'coefficient corrélation horizontal pour image décorrélée'
+subplot(224)
+plot(corv_dec(1,1:10))
+title 'coefficient corrélation vertical pour image décorrélée'
+
 
 
 
