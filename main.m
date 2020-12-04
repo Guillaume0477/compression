@@ -112,8 +112,8 @@ colorbar
 
 I_DCT = DCTransf(Im);
 I_Q = Quantif(I_DCT);
-I_C = codage(I_Q);
-I_Decode = decodage(I_Q);
+[I_C,dico] = codage(I_Q);
+I_Decode = decodage(I_C,dico,s(1),s(2));
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
