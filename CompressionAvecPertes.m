@@ -1,3 +1,7 @@
+
+clear variables;
+close all;
+
 % Filename of the image to load
 ImToUse = 'lena.gif';
 %Number of bins of the hist
@@ -17,9 +21,20 @@ s = size(Im);
 figure(1)
 subplot(221)
 imshow(Im, [])
+title 'Image origine'
+colorbar
 subplot(222)
 imshow(I_dec, [])
+title 'Image décorrelée'
+colorbar
 subplot(223)
 bar(vals, hInit)
+title 'histogramme origine'
 subplot(224)
 bar(vals_dec, hDec)
+title 'histogramme décorrelé'
+
+
+
+
+
